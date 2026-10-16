@@ -78,22 +78,11 @@
       color: #ffffff;
     }
 
-    /* Subtle custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-dark);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
-    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
 
-    /* Layout Container */
     .container {
       width: 100%;
       max-width: 1240px;
@@ -101,7 +90,6 @@
       padding: 0 1.5rem;
     }
 
-    /* Ambient Lighting Background */
     .ambient-glow {
       position: fixed;
       top: 0;
@@ -151,9 +139,6 @@
       100% { transform: translate(40px, 60px) scale(1.1); }
     }
 
-    /* ==========================================================================
-       GLASSMORPHISM & UTILITY CLASSES
-       ========================================================================== */
     .glass-card {
       background: var(--bg-card);
       backdrop-filter: blur(16px);
@@ -244,7 +229,6 @@
       color: #fff;
     }
 
-    /* Section Headers */
     .section-header {
       text-align: center;
       max-width: 720px;
@@ -272,7 +256,6 @@
       line-height: 1.7;
     }
 
-    /* Scroll Animation Reveal */
     .reveal-item {
       opacity: 0;
       transform: translateY(28px);
@@ -283,9 +266,6 @@
       transform: translateY(0);
     }
 
-    /* ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== */
     header {
       position: fixed;
       top: 0;
@@ -393,7 +373,6 @@
       cursor: pointer;
     }
 
-    /* Mobile Nav Drawer */
     .mobile-nav {
       position: fixed;
       top: 76px;
@@ -418,9 +397,6 @@
       padding: 0.5rem 0;
     }
 
-    /* ==========================================================================
-       HERO SECTION
-       ========================================================================== */
     .hero-section {
       position: relative;
       min-height: 100vh;
@@ -597,9 +573,6 @@
       100% { transform: translate(-50%, 14px); opacity: 0; }
     }
 
-    /* ==========================================================================
-       ABOUT SECTION
-       ========================================================================== */
     .about-section {
       padding: 7rem 0;
       position: relative;
@@ -672,7 +645,6 @@
       color: var(--text-muted);
     }
 
-    /* Skills Progress Section */
     .skills-container {
       display: flex;
       flex-direction: column;
@@ -742,7 +714,6 @@
       filter: blur(2px);
     }
 
-    /* Vision Banner */
     .vision-banner {
       margin-top: 3.5rem;
       padding: 2.2rem;
@@ -783,9 +754,6 @@
       line-height: 1.6;
     }
 
-    /* ==========================================================================
-       PROJECTS SECTION
-       ========================================================================== */
     .projects-section {
       padding: 7rem 0;
       position: relative;
@@ -794,7 +762,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
@@ -927,9 +895,6 @@
       box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
     }
 
-    /* ==========================================================================
-       SKILLS & TOOLS SECTION
-       ========================================================================== */
     .skills-section {
       padding: 7rem 0;
       position: relative;
@@ -1023,9 +988,6 @@
       border-radius: 4px;
     }
 
-    /* ==========================================================================
-       CONTACT SECTION
-       ========================================================================== */
     .contact-section {
       padding: 7rem 0 5rem 0;
       position: relative;
@@ -1130,7 +1092,6 @@
       box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
     }
 
-    /* Contact Form */
     .contact-form-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -1172,7 +1133,6 @@
       min-height: 130px;
     }
 
-    /* Alert / Toast */
     .toast-alert {
       display: none;
       background: rgba(16, 185, 129, 0.15);
@@ -1189,9 +1149,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ==========================================================================
-       FOOTER
-       ========================================================================== */
     footer {
       background: rgba(4, 7, 14, 0.9);
       border-top: 1px solid var(--border-subtle);
@@ -1235,7 +1192,6 @@
       50% { transform: scale(1.2); }
     }
 
-    /* Back To Top Button */
     .back-to-top {
       position: fixed;
       bottom: 2rem;
@@ -1267,9 +1223,6 @@
       transform: translateY(-4px);
     }
 
-    /* ==========================================================================
-       INTERACTIVE MODALS
-       ========================================================================== */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -1391,13 +1344,9 @@
       margin-top: 1rem;
     }
 
-    /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
-       ========================================================================== */
     @media (max-width: 1024px) {
       .hero-name { font-size: 3.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .projects-grid { grid-template-columns: 1fr 1fr; }
       .skills-category-grid { grid-template-columns: 1fr 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
@@ -1408,7 +1357,6 @@
       .hero-name { font-size: 2.75rem; }
       .hero-title { font-size: 1.5rem; }
       .hero-highlights-strip { grid-template-columns: 1fr 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
       .skills-category-grid { grid-template-columns: 1fr; }
       .about-features-list { grid-template-columns: 1fr; }
       .modal-grid-2 { grid-template-columns: 1fr; }
@@ -1418,14 +1366,12 @@
 </head>
 <body>
 
-  <!-- Ambient Glow Background Blobs -->
   <div class="ambient-glow" aria-hidden="true">
     <div class="ambient-blob-1"></div>
     <div class="ambient-blob-2"></div>
     <div class="ambient-blob-3"></div>
   </div>
 
-  <!-- NAVIGATION -->
   <header id="main-header" class="glass-nav">
     <div class="container nav-container">
       <a href="#hero" class="nav-brand">
@@ -1435,7 +1381,6 @@
         <span>Salah<span class="gradient-text">.data</span></span>
       </a>
 
-      <!-- Desktop Nav -->
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">À Propos</a></li>
         <li><a href="#projects" class="nav-link">Projets</a></li>
@@ -1453,13 +1398,11 @@
         </a>
       </div>
 
-      <!-- Mobile Menu Toggle Button -->
       <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Ouvrir le menu">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
 
-    <!-- Mobile Nav Drawer -->
     <div class="mobile-nav" id="mobile-nav-drawer">
       <a href="#about" class="nav-link mobile-link">À Propos</a>
       <a href="#projects" class="nav-link mobile-link">Projets</a>
@@ -1473,9 +1416,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
   <section id="hero" class="hero-section">
-    <!-- Interactive Canvas Particles -->
     <canvas id="particles-canvas"></canvas>
 
     <div class="container hero-content">
@@ -1495,18 +1436,16 @@
       </h2>
 
       <p class="hero-subtitle reveal-item">
-        Spécialisé en Master Data Management (MDM), modélisation de données et création de tableaux de bord décisionnels. 
+        Spécialisé en Master Data Management (MDM), modélisation de données et création de plateformes décisionnelles. 
         Je transforme des données complexes en insights stratégiques pour optimiser la performance et la prise de décision.
       </p>
 
-      <!-- Animated Typing Skill Ribbon -->
       <div class="hero-typing-box reveal-item">
         <span class="typing-prefix">&gt; expertise : </span>
         <span id="typed-text"></span>
         <span class="typing-cursor"></span>
       </div>
 
-      <!-- Action Buttons -->
       <div class="hero-cta-group reveal-item">
         <a href="#projects" class="btn-primary">
           <i class="fa-solid fa-layer-group"></i> Voir mes Projets
@@ -1519,10 +1458,9 @@
         </a>
       </div>
 
-      <!-- Quick Metrics Strip -->
       <div class="hero-highlights-strip reveal-item">
         <div class="highlight-card">
-          <span class="highlight-num gradient-text">3+</span>
+          <span class="highlight-num gradient-text">4+</span>
           <span class="highlight-label">Projets Data Majeurs</span>
         </div>
         <div class="highlight-card">
@@ -1540,7 +1478,6 @@
       </div>
     </div>
 
-    <!-- Scroll Down Mouse Indicator -->
     <a href="#about" class="scroll-indicator" aria-label="Faire défiler vers le bas">
       <div class="scroll-mouse">
         <div class="scroll-wheel"></div>
@@ -1549,7 +1486,6 @@
     </a>
   </section>
 
-  <!-- ABOUT SECTION -->
   <section id="about" class="about-section">
     <div class="container">
       <div class="section-header reveal-item">
@@ -1561,7 +1497,6 @@
       </div>
 
       <div class="about-grid">
-        <!-- Bio Card -->
         <div class="glass-card about-profile-card reveal-item">
           <div class="bio-lead">
             Étudiant en dernière année de Data Science à l'ESI, passionné par la valorisation des données et la gouvernance d'entreprise.
@@ -1605,9 +1540,7 @@
           </div>
         </div>
 
-        <!-- Skills Progress Grid -->
         <div class="skills-container reveal-item">
-          <!-- Python & Data Science -->
           <div class="skill-card">
             <div class="skill-header">
               <div class="skill-name">
@@ -1621,7 +1554,6 @@
             </div>
           </div>
 
-          <!-- SQL & Data Modeling -->
           <div class="skill-card">
             <div class="skill-header">
               <div class="skill-name">
@@ -1635,7 +1567,6 @@
             </div>
           </div>
 
-          <!-- ETL & MDM -->
           <div class="skill-card">
             <div class="skill-header">
               <div class="skill-name">
@@ -1649,7 +1580,6 @@
             </div>
           </div>
 
-          <!-- Data Visualization -->
           <div class="skill-card">
             <div class="skill-header">
               <div class="skill-name">
@@ -1663,7 +1593,6 @@
             </div>
           </div>
 
-          <!-- Documentation & Reporting -->
           <div class="skill-card">
             <div class="skill-header">
               <div class="skill-name">
@@ -1677,7 +1606,6 @@
             </div>
           </div>
 
-          <!-- Automation & Backend -->
           <div class="skill-card">
             <div class="skill-header">
               <div class="skill-name">
@@ -1693,7 +1621,6 @@
         </div>
       </div>
 
-      <!-- Vision Banner -->
       <div id="vision" class="vision-banner reveal-item">
         <div class="vision-content">
           <div class="vision-badge">
@@ -1713,14 +1640,13 @@
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
   <section id="projects" class="projects-section">
     <div class="container">
       <div class="section-header reveal-item">
         <span class="section-subtitle">Showcase &bull; Portfolio de Réalisations</span>
-        <h2 class="section-title">Trois Projets Data Clés</h2>
+        <h2 class="section-title">Quatre Projets Data Clés</h2>
         <p class="section-desc">
-          Démonstrations concrètes de mes compétences en ingénierie des données, modélisation décisionnelle et automatisation backend.
+          Démonstrations concrètes de mes compétences en ingénierie des données, modélisation décisionnelle, automatisation backend et développement de plateformes interactives.
         </p>
       </div>
 
@@ -1822,59 +1748,106 @@
           </button>
         </div>
 
-        <!-- PROJECT 3: Mail Tracker & Telegram Bot -->
+        <!-- PROJECT 3: Geospatial Platform -->
         <div class="project-card reveal-item" id="project-card-3">
           <div class="project-card-header">
-            <div class="project-icon-badge" title="Automatisation Backend">
-              📬
+            <div class="project-icon-badge" title="Plateforme Géospatiale">
+              🗺️
             </div>
             <span class="project-number">03 / PROJET</span>
           </div>
 
-          <h3 class="project-title">Mail Tracker & Notification Telegram</h3>
+          <h3 class="project-title">Plateforme d'Analyse Géospatiale</h3>
 
           <p class="project-desc">
-            Application backend légère et déployée sur PythonAnywhere qui détecte l'ouverture d'emails en temps réel via un pixel de tracking invisible et envoie des alertes instantanées via un bot Telegram.
+            Plateforme interactive de collecte, de structuration et d'analyse de données géospatiales pour évaluer l'implantation territoriale et l'environnement concurrentiel des agences à travers le Maroc.
           </p>
 
           <ul class="project-features-list">
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Endpoint Flask pour le suivi des ouvertures d'emails</span>
+              <span>Collecte et enrichissement de données géolocalisées</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Intégration de l'API Telegram Bot pour les notifications</span>
+              <span>Analyse de densité, de proximité et de couverture</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Déploiement continu et fiable sur PythonAnywhere</span>
+              <span>Nettoyage et standardisation des adresses à grande échelle</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Journalisation (logging) des destinataires et horodatages</span>
+              <span>Visualisation cartographique interactive et dynamique</span>
             </li>
           </ul>
 
           <div class="project-tech-tags">
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">Telegram Bot API</span>
-            <span class="tech-tag">PythonAnywhere</span>
-            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Geopandas</span>
+            <span class="tech-tag">Streamlit</span>
+            <span class="tech-tag">Data Collection</span>
+            <span class="tech-tag">SQL</span>
           </div>
 
-          <button class="project-btn" onclick="openModal('modal-mailtracker')">
-            <i class="fa-solid fa-code"></i>
-            <span>Détails & Architecture</span>
+          <button class="project-btn" onclick="openModal('modal-geo')">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>Détails & Méthodologie</span>
           </button>
+        </div>
+
+        <!-- PROJECT 4: ML Studio Pro -->
+        <div class="project-card reveal-item" id="project-card-4">
+          <div class="project-card-header">
+            <div class="project-icon-badge" title="Plateforme Machine Learning">
+              🤖
+            </div>
+            <span class="project-number">04 / PROJET</span>
+          </div>
+
+          <h3 class="project-title">ML Studio Pro</h3>
+
+          <p class="project-desc">
+            Plateforme web interactive permettant d'entraîner, d'évaluer et de déployer des modèles de Machine Learning sans écrire de code, directement depuis le navigateur.
+          </p>
+
+          <ul class="project-features-list">
+            <li class="project-feature-item">
+              <i class="fa-solid fa-circle-check feature-check"></i>
+              <span>Upload de données (CSV/Excel) et prétraitement automatisé</span>
+            </li>
+            <li class="project-feature-item">
+              <i class="fa-solid fa-circle-check feature-check"></i>
+              <span>Configuration dynamique des hyperparamètres (RF, SVM, K-Means)</span>
+            </li>
+            <li class="project-feature-item">
+              <i class="fa-solid fa-circle-check feature-check"></i>
+              <span>Visualisation interactive des résultats (Plotly, PCA, Matrices)</span>
+            </li>
+            <li class="project-feature-item">
+              <i class="fa-solid fa-circle-check feature-check"></i>
+              <span>Déploiement continu et gratuit via Streamlit Community Cloud</span>
+            </li>
+          </ul>
+
+          <div class="project-tech-tags">
+            <span class="tech-tag">Streamlit</span>
+            <span class="tech-tag">Scikit-Learn</span>
+            <span class="tech-tag">Plotly</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pandas</span>
+          </div>
+
+          <a href="https://ml-studio-platform.streamlit.app/" target="_blank" class="project-btn">
+            <i class="fa-solid fa-external-link-alt"></i>
+            <span>Voir la Démo Live</span>
+          </a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- SKILLS & TOOLS SECTION -->
   <section id="skills" class="skills-section">
     <div class="container">
       <div class="section-header reveal-item">
@@ -1887,7 +1860,6 @@
 
       <div class="skills-category-grid">
 
-        <!-- Category 1: Data Science & ML -->
         <div class="category-card reveal-item">
           <div class="category-card-header">
             <div class="category-icon">
@@ -1927,7 +1899,6 @@
           </div>
         </div>
 
-        <!-- Category 2: Data Engineering & MDM -->
         <div class="category-card reveal-item">
           <div class="category-card-header">
             <div class="category-icon" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e;">
@@ -1967,7 +1938,6 @@
           </div>
         </div>
 
-        <!-- Category 3: Databases & Modeling -->
         <div class="category-card reveal-item">
           <div class="category-card-header">
             <div class="category-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
@@ -2007,7 +1977,6 @@
           </div>
         </div>
 
-        <!-- Category 4: Visualization & Automation -->
         <div class="category-card reveal-item">
           <div class="category-card-header">
             <div class="category-icon" style="background: rgba(6, 182, 212, 0.15); color: #06b6d4;">
@@ -2051,7 +2020,6 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="section-header reveal-item">
@@ -2063,12 +2031,11 @@
       </div>
 
       <div class="contact-grid">
-        <!-- Contact Information Panel -->
         <div class="contact-info-card reveal-item">
           <div class="contact-info-top">
             <h3>Discutons de votre vision</h3>
             <p>
-              Je serais ravi d'échanger sur les opportunités au sein de votre équipe Data, de présenter en direct mes tableaux de bord ou de concevoir un premier prototype d'analyse pour vos besoins.
+              Je serais ravi d'échanger sur les opportunités au sein de votre équipe Data, de présenter en direct mes plateformes ou de concevoir un premier prototype d'analyse pour vos besoins.
             </p>
 
             <div class="contact-details-list">
@@ -2104,7 +2071,6 @@
             </div>
           </div>
 
-          <!-- Social Links Strip -->
           <div>
             <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
               Réseaux Professionnels
@@ -2126,9 +2092,7 @@
           </div>
         </div>
 
-        <!-- Interactive Contact Form -->
         <div class="contact-form-card reveal-item">
-          <!-- Success Notification Toast -->
           <div id="contact-toast" class="toast-alert">
             <i class="fa-solid fa-circle-check" style="margin-right: 0.5rem;"></i>
             <strong>Message transmis avec succès !</strong> Merci pour votre message. Je vous répondrai sous 24 heures.
@@ -2165,7 +2129,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container footer-content">
       <div class="footer-brand">
@@ -2186,14 +2149,11 @@
     </div>
   </footer>
 
-  <!-- Floating Back to Top Button -->
   <button id="back-to-top" class="back-to-top" aria-label="Retour en haut de page">
     <i class="fa-solid fa-chevron-up"></i>
   </button>
 
-  <!-- ==========================================================================
-       MODAL 1: MDM & ETL Pipeline Details
-       ========================================================================== -->
+  <!-- MODAL 1: MDM & ETL Pipeline Details -->
   <div id="modal-mdm" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-mdm')">
     <div class="modal-container">
       <button class="modal-close-btn" onclick="closeModal('modal-mdm')">
@@ -2245,9 +2205,7 @@ def generate_synthetic_data(n=1000):
     </div>
   </div>
 
-  <!-- ==========================================================================
-       MODAL 2: Banking Dashboard Details
-       ========================================================================== -->
+  <!-- MODAL 2: Banking Dashboard Details -->
   <div id="modal-dashboard" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-dashboard')">
     <div class="modal-container">
       <button class="modal-close-btn" onclick="closeModal('modal-dashboard')">
@@ -2299,81 +2257,109 @@ st.caption("Modèle dimensionnel optimisé pour l'analyse de fusion")</code></pr
     </div>
   </div>
 
-  <!-- ==========================================================================
-       MODAL 3: Mail Tracker Details
-       ========================================================================== -->
-  <div id="modal-mailtracker" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-mailtracker')">
+  <!-- MODAL 3: Geospatial Platform Details -->
+  <div id="modal-geo" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-geo')">
     <div class="modal-container">
-      <button class="modal-close-btn" onclick="closeModal('modal-mailtracker')">
+      <button class="modal-close-btn" onclick="closeModal('modal-geo')">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <span class="modal-badge"><i class="fa-solid fa-bolt"></i> PROJET 03 &bull; AUTOMATISATION BACKEND</span>
-      <h3 class="modal-title">Mail Tracker & Notification Telegram</h3>
+      <span class="modal-badge"><i class="fa-solid fa-map-location-dot"></i> PROJET 03 &bull; PLATEFORME GÉOSPATIALE</span>
+      <h3 class="modal-title">Plateforme d'Analyse Géospatiale</h3>
       <p class="modal-desc">
-        Solution backend légère et efficace pour suivre l'engagement des destinataires. Lorsqu'un email est ouvert, le pixel de tracking invisible (1x1) déclenche une requête vers le serveur, qui traite l'information et notifie instantanément l'expéditeur via un bot Telegram.
+        Une plateforme interactive complète dédiée à la collecte, au nettoyage et à l'analyse spatiale des réseaux d'agences. Elle permet d'évaluer l'implantation territoriale et d'identifier les zones sous-dotées ou sur-concurrentielles à l'échelle du Maroc.
       </p>
 
-      <h4 class="modal-section-title"><i class="fa-solid fa-network-wired" style="color: #10b981;"></i> Architecture du Système</h4>
+      <h4 class="modal-section-title"><i class="fa-solid fa-network-wired" style="color: #10b981;"></i> Fonctionnalités de la Plateforme</h4>
       <div class="modal-grid-2">
         <div class="modal-box">
-          <strong style="color: #38bdf8; display: block; margin-bottom: 0.4rem;">1. Endpoint de Tracking (Flask)</strong>
-          <span style="font-size: 0.88rem; color: #cbd5e1;">Reçoit la requête HTTP générée par l'ouverture de l'email, extrait l'identifiant unique et enregistre l'horodatage dans une base de données ou un fichier log.</span>
+          <strong style="color: #38bdf8; display: block; margin-bottom: 0.4rem;">1. Collecte & Enrichissement</strong>
+          <span style="font-size: 0.88rem; color: #cbd5e1;">Récupération automatisée des coordonnées GPS des agences et des points d'intérêt environnants, suivie d'un nettoyage et d'une standardisation des adresses.</span>
         </div>
         <div class="modal-box">
-          <strong style="color: #a855f7; display: block; margin-bottom: 0.4rem;">2. Notification Temps Réel</strong>
-          <span style="font-size: 0.88rem; color: #cbd5e1;">Utilise l'API Telegram Bot pour envoyer un message formaté contenant l'ID du destinataire, l'heure d'ouverture et le nombre total d'ouvertures.</span>
+          <strong style="color: #a855f7; display: block; margin-bottom: 0.4rem;">2. Analyse de Proximité & Cartographie</strong>
+          <span style="font-size: 0.88rem; color: #cbd5e1;">Calcul des distances, analyse de densité et visualisation cartographique interactive pour aider à la décision stratégique d'ouverture ou de fusion.</span>
         </div>
       </div>
 
-      <h4 class="modal-section-title"><i class="fa-solid fa-terminal" style="color: #f59e0b;"></i> Extrait du Code Backend (Python/Flask)</h4>
-      <pre class="modal-code-block"><code>from flask import Flask, request, make_response
-import requests
-from datetime import datetime
+      <h4 class="modal-section-title"><i class="fa-solid fa-terminal" style="color: #f59e0b;"></i> Extrait de Traitement Géospatial (Python)</h4>
+      <pre class="modal-code-block"><code>import geopandas as gpd
+import pandas as pd
 
-app = Flask(__name__)
-TELEGRAM_BOT_TOKEN = "votre_token"
-CHAT_ID = "votre_chat_id"
-
-@app.route('/track/<email_id>')
-def track_open(email_id):
-    # 1. Envoi de la notification Telegram
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    requests.post(url, json={
-        "chat_id": CHAT_ID,
-        "text": f"📬 Email ouvert !\nID: {email_id}\nHeure: {now}"
-    })
+# Analyse de proximité des agences et commerces
+def analyse_geospatiale(agences, commerces):
+    gdf_agences = gpd.GeoDataFrame(
+        agences, geometry=gpd.points_from_xy(agences.lon, agences.lat)
+    )
+    gdf_commerces = gpd.GeoDataFrame(
+        commerces, geometry=gpd.points_from_xy(commerces.lon, commerces.lat)
+    )
     
-    # 2. Retourne une image pixel invisible 1x1 (PNG)
-    pixel_data = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
-    response = make_response(pixel_data)
-    response.headers.set('Content-Type', 'image/png')
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
-    return response
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)</code></pre>
+    # Calcul de la distance au commerce le plus proche
+    gdf_agences['commerce_proche_km'] = gdf_agences.geometry.apply(
+        lambda x: (gdf_commerces.distance(x) * 111).min() # Conversion approx. en km
+    )
+    return gdf_agences</code></pre>
 
       <div class="modal-interactive-demo">
         <div style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
-          <i class="fa-solid fa-check-double" style="color: #10b981;"></i> Déployé sur PythonAnywhere
+          <i class="fa-solid fa-check-double" style="color: #10b981;"></i> Aide à la Décision Stratégique
         </div>
         <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
-          Le système fonctionne en continu sur un hébergement gratuit et fiable, garantissant une disponibilité 24/7 pour le suivi des campagnes.
+          Cette plateforme transforme des données brutes en cartes d'opportunités actionnables pour les équipes de développement réseau.
         </p>
-        <button class="btn-primary" onclick="closeModal('modal-mailtracker')">Fermer la vue détaillée</button>
+        <button class="btn-primary" onclick="closeModal('modal-geo')">Fermer la vue détaillée</button>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================================================
-       JAVASCRIPT CODE (Particle Canvas, Scroll Observer, Typing, Modals)
-       ========================================================================== */ -->
+  <!-- MODAL 4: ML Studio Pro Details -->
+  <div id="modal-ml-studio" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-ml-studio')">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closeModal('modal-ml-studio')">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="modal-badge"><i class="fa-solid fa-robot"></i> PROJET 04 &bull; PLATEFORME MACHINE LEARNING</span>
+      <h3 class="modal-title">ML Studio Pro</h3>
+      <p class="modal-desc">
+        Une plateforme web interactive de bout en bout qui démocratise l'accès au Machine Learning. Elle permet aux utilisateurs de télécharger leurs données, de configurer visuellement des hyperparamètres et d'obtenir des évaluations de modèles professionnelles sans écrire une seule ligne de code.
+      </p>
+
+      <h4 class="modal-section-title"><i class="fa-solid fa-gears" style="color: #6366f1;"></i> Fonctionnalités Clés</h4>
+      <div class="modal-grid-2">
+        <div class="modal-box">
+          <strong style="color: #38bdf8; display: block; margin-bottom: 0.4rem;">1. Prétraitement Automatisé</strong>
+          <span style="font-size: 0.88rem; color: #cbd5e1;">Détection automatique des types de colonnes, gestion des valeurs manquantes (moyenne, médiane, mode) et encodage des variables catégorielles.</span>
+        </div>
+        <div class="modal-box">
+          <strong style="color: #a855f7; display: block; margin-bottom: 0.4rem;">2. Réglage Dynamique des Hyperparamètres</strong>
+          <span style="font-size: 0.88rem; color: #cbd5e1;">Interface intuitive pour ajuster en temps réel les paramètres de modèles comme Random Forest, SVM, Régression Linéaire et K-Means.</span>
+        </div>
+      </div>
+
+      <h4 class="modal-section-title"><i class="fa-solid fa-chart-pie" style="color: #10b981;"></i> Visualisation des Résultats</h4>
+      <div class="modal-box" style="margin-bottom: 1.5rem;">
+        <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6;">
+          Génération automatique de graphiques interactifs avec Plotly : matrices de confusion pour la classification, nuages de points "Réel vs Prédit" pour la régression, et visualisation PCA 2D pour le clustering.
+        </p>
+      </div>
+
+      <div class="modal-interactive-demo">
+        <div style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
+          <i class="fa-solid fa-rocket" style="color: #06b6d4;"></i> Déploiement Production-Ready
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Hébergé gratuitement et de manière fiable sur Streamlit Community Cloud, avec une disponibilité 24/7.
+        </p>
+        <a href="https://ml-studio-platform.streamlit.app/" target="_blank" class="btn-primary" style="text-decoration: none;">
+          <i class="fa-solid fa-external-link-alt"></i> Accéder à la Plateforme Live
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
-    /* ==========================================================================
-       1. INTERACTIVE CANVAS CONSTELLATION PARTICLES
-       ========================================================================== */
     (function initParticles() {
       const canvas = document.getElementById('particles-canvas');
       if (!canvas) return;
@@ -2385,11 +2371,7 @@ if __name__ == '__main__':
       const particleCount = Math.min(Math.floor(width * 0.06), 75);
       const maxDistance = 140;
 
-      const mouse = {
-        x: null,
-        y: null,
-        radius: 160
-      };
+      const mouse = { x: null, y: null, radius: 160 };
 
       window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
@@ -2420,11 +2402,9 @@ if __name__ == '__main__':
         update() {
           this.x += this.vx;
           this.y += this.vy;
-
           if (this.x < 0 || this.x > width) this.vx *= -1;
           if (this.y < 0 || this.y > height) this.vy *= -1;
 
-          // Mouse interaction (soft push)
           if (mouse.x !== null && mouse.y !== null) {
             const dx = this.x - mouse.x;
             const dy = this.y - mouse.y;
@@ -2455,16 +2435,13 @@ if __name__ == '__main__':
 
       function animate() {
         ctx.clearRect(0, 0, width, height);
-
         for (let i = 0; i < particles.length; i++) {
           particles[i].update();
           particles[i].draw();
-
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-
             if (dist < maxDistance) {
               const opacity = (1 - dist / maxDistance) * 0.22;
               ctx.beginPath();
@@ -2476,37 +2453,26 @@ if __name__ == '__main__':
             }
           }
         }
-
         requestAnimationFrame(animate);
       }
-
       animate();
     })();
 
-    /* ==========================================================================
-       2. DYNAMIC SKILL TYPING EFFECT
-       ========================================================================== */
     (function initTyping() {
       const phrases = [
         "Expert en Master Data Management (MDM)",
         "Création de Dashboards Interactifs avec Streamlit",
         "Modélisation Dimensionnelle & Pipelines ETL",
-        "Développement d'Outils Backend & Automation (Flask, Telegram)"
+        "Développement de Plateformes ML & Automatisation"
       ];
-
       const target = document.getElementById("typed-text");
       if (!target) return;
 
-      let phraseIdx = 0;
-      let charIdx = 0;
-      let isDeleting = false;
-      const typeSpeed = 50;
-      const deleteSpeed = 25;
-      const delayBetweenPhrases = 2200;
+      let phraseIdx = 0, charIdx = 0, isDeleting = false;
+      const typeSpeed = 50, deleteSpeed = 25, delayBetweenPhrases = 2200;
 
       function typeLoop() {
         const currentPhrase = phrases[phraseIdx];
-
         if (isDeleting) {
           target.textContent = currentPhrase.substring(0, charIdx - 1);
           charIdx--;
@@ -2516,7 +2482,6 @@ if __name__ == '__main__':
         }
 
         let speed = isDeleting ? deleteSpeed : typeSpeed;
-
         if (!isDeleting && charIdx === currentPhrase.length) {
           speed = delayBetweenPhrases;
           isDeleting = true;
@@ -2525,18 +2490,12 @@ if __name__ == '__main__':
           phraseIdx = (phraseIdx + 1) % phrases.length;
           speed = 400;
         }
-
         setTimeout(typeLoop, speed);
       }
-
       typeLoop();
     })();
 
-    /* ==========================================================================
-       3. INTERSECTION OBSERVER FOR SCROLL ANIMATIONS & STATS
-       ========================================================================== */
     document.addEventListener("DOMContentLoaded", () => {
-      // Reveal items on scroll
       const reveals = document.querySelectorAll(".reveal-item");
       const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -2545,17 +2504,11 @@ if __name__ == '__main__':
             observer.unobserve(entry.target);
           }
         });
-      }, {
-        threshold: 0.15,
-        rootMargin: "0px 0px -40px 0px"
-      });
-
+      }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
       reveals.forEach(el => revealObserver.observe(el));
 
-      // Animated Skills Progress Bars & Percentage Counter
       const skillCards = document.querySelectorAll(".skill-card");
       let skillsAnimated = false;
-
       const skillsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting && !skillsAnimated) {
@@ -2564,20 +2517,15 @@ if __name__ == '__main__':
           }
         });
       }, { threshold: 0.3 });
-
-      if (skillCards.length > 0) {
-        skillsObserver.observe(skillCards[0]);
-      }
+      if (skillCards.length > 0) skillsObserver.observe(skillCards[0]);
 
       function animateSkillBars() {
         document.querySelectorAll(".skill-card").forEach(card => {
           const fill = card.querySelector(".progress-bar-fill");
           const percentLabel = card.querySelector(".skill-percentage");
           if (!fill || !percentLabel) return;
-
           const targetPercent = parseInt(percentLabel.getAttribute("data-target"), 10) || 0;
           fill.style.width = targetPercent + "%";
-
           let count = 0;
           const stepTime = 1400 / targetPercent;
           const timer = setInterval(() => {
@@ -2591,35 +2539,23 @@ if __name__ == '__main__':
         });
       }
 
-      // Back to top floating button logic
       const backToTopBtn = document.getElementById("back-to-top");
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 400) {
-          backToTopBtn.classList.add("visible");
-        } else {
-          backToTopBtn.classList.remove("visible");
-        }
+        if (window.scrollY > 400) backToTopBtn.classList.add("visible");
+        else backToTopBtn.classList.remove("visible");
       });
       backToTopBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // Mobile Menu Drawer Toggle
       const mobileToggle = document.getElementById("mobile-toggle");
       const mobileDrawer = document.getElementById("mobile-nav-drawer");
       const mobileLinks = document.querySelectorAll(".mobile-link");
-
       if (mobileToggle && mobileDrawer) {
         mobileToggle.addEventListener("click", () => {
           mobileDrawer.classList.toggle("open");
-          const icon = mobileToggle.querySelector("i");
-          if (mobileDrawer.classList.contains("open")) {
-            icon.className = "fa-solid fa-xmark";
-          } else {
-            icon.className = "fa-solid fa-bars";
-          }
+          mobileToggle.querySelector("i").className = mobileDrawer.classList.contains("open") ? "fa-solid fa-xmark" : "fa-solid fa-bars";
         });
-
         mobileLinks.forEach(link => {
           link.addEventListener("click", () => {
             mobileDrawer.classList.remove("open");
@@ -2629,34 +2565,21 @@ if __name__ == '__main__':
       }
     });
 
-    /* ==========================================================================
-       4. CONTACT FORM HANDLER
-       ========================================================================== */
     function handleContactSubmit(e) {
       e.preventDefault();
-      const name = document.getElementById("contact-name").value;
-      const email = document.getElementById("contact-email").value;
       const toast = document.getElementById("contact-toast");
       const submitBtn = document.getElementById("submit-btn");
-
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
-
       setTimeout(() => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Envoyer le Message';
         toast.style.display = "block";
         document.getElementById("portfolio-contact-form").reset();
-
-        setTimeout(() => {
-          toast.style.display = "none";
-        }, 7000);
+        setTimeout(() => { toast.style.display = "none"; }, 7000);
       }, 900);
     }
 
-    /* ==========================================================================
-       5. MODAL SYSTEM
-       ========================================================================== */
     function openModal(id) {
       const modal = document.getElementById(id);
       if (modal) {
@@ -2674,12 +2597,9 @@ if __name__ == '__main__':
     }
 
     function closeModalOnOverlay(e, id) {
-      if (e.target.id === id) {
-        closeModal(id);
-      }
+      if (e.target.id === id) closeModal(id);
     }
 
-    // Escape key closes modals
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         document.querySelectorAll(".modal-overlay.active").forEach(modal => {
