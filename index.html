@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth" id="html-root">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1362,6 +1362,45 @@
       .modal-grid-2 { grid-template-columns: 1fr; }
       .footer-content { flex-direction: column; text-align: center; }
     }
+
+    /* ---- Language Switcher ---- */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.65rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .lang-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .lang-btn.active {
+      background: var(--gradient-primary);
+      color: #fff;
+      border-radius: 8px;
+    }
+    .lang-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--border-subtle);
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -1382,19 +1421,25 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#about" class="nav-link">À Propos</a></li>
-        <li><a href="#projects" class="nav-link">Projets</a></li>
-        <li><a href="#skills" class="nav-link">Compétences</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav.about">À Propos</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
       </ul>
 
       <div class="nav-cta">
+        <!-- Language Switcher -->
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
+          <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')" aria-pressed="true">FR</button>
+          <div class="lang-divider"></div>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+        </div>
         <div class="nav-target-badge" title="Data Scientist / Data Analyst">
           <span class="pulse-dot"></span>
-          <span>Disponible · Data Scientist</span>
+          <span data-i18n="nav.available">Disponible · Data Scientist</span>
         </div>
         <a href="#contact" class="btn-primary" style="padding: 0.55rem 1.25rem; font-size: 0.85rem;">
-          <i class="fa-solid fa-paper-plane"></i> Me Contacter
+          <i class="fa-solid fa-paper-plane"></i> <span data-i18n="nav.cta">Me Contacter</span>
         </a>
       </div>
 
@@ -1404,13 +1449,13 @@
     </div>
 
     <div class="mobile-nav" id="mobile-nav-drawer">
-      <a href="#about" class="nav-link mobile-link">À Propos</a>
-      <a href="#projects" class="nav-link mobile-link">Projets</a>
-      <a href="#skills" class="nav-link mobile-link">Compétences</a>
-      <a href="#contact" class="nav-link mobile-link">Contact</a>
+      <a href="#about" class="nav-link mobile-link" data-i18n="nav.about">À Propos</a>
+      <a href="#projects" class="nav-link mobile-link" data-i18n="nav.projects">Projets</a>
+      <a href="#skills" class="nav-link mobile-link" data-i18n="nav.skills">Compétences</a>
+      <a href="#contact" class="nav-link mobile-link" data-i18n="nav.contact">Contact</a>
       <div style="margin-top: 1rem;">
         <a href="#contact" class="btn-primary" style="width: 100%;">
-          <i class="fa-solid fa-paper-plane"></i> Me Contacter
+          <i class="fa-solid fa-paper-plane"></i> <span data-i18n="nav.cta">Me Contacter</span>
         </a>
       </div>
     </div>
@@ -1423,45 +1468,45 @@
       <div class="hero-badge-wrapper reveal-item">
         <div class="badge-pill">
           <i class="fa-solid fa-star" style="color: #38bdf8;"></i>
-          <span>Data Scientist passionné · Disponible au Maroc</span>
+          <span data-i18n="hero.badge">Data Scientist passionné · Disponible au Maroc</span>
         </div>
       </div>
 
       <h1 class="hero-name reveal-item">
-        Bonjour, je suis <span class="gradient-text">Salah Eddine</span>
+        <span data-i18n="hero.greeting">Bonjour, je suis</span> <span class="gradient-text">Salah Eddine</span>
       </h1>
 
       <h2 class="hero-title reveal-item">
         Data Scientist & Analyste de Données
       </h2>
 
-      <p class="hero-subtitle reveal-item">
+      <p class="hero-subtitle reveal-item" data-i18n="hero.subtitle">
         Spécialisé en Master Data Management (MDM), modélisation de données et création de plateformes décisionnelles. 
         Je transforme des données complexes en insights stratégiques pour optimiser la performance et la prise de décision.
       </p>
 
       <div class="hero-typing-box reveal-item">
-        <span class="typing-prefix">&gt; expertise : </span>
+        <span class="typing-prefix">&gt; <span data-i18n="hero.typingPrefix">expertise</span> : </span>
         <span id="typed-text"></span>
         <span class="typing-cursor"></span>
       </div>
 
       <div class="hero-cta-group reveal-item">
         <a href="#projects" class="btn-primary">
-          <i class="fa-solid fa-layer-group"></i> Voir mes Projets
+          <i class="fa-solid fa-layer-group"></i> <span data-i18n="hero.ctaProjects">Voir mes Projets</span>
         </a>
         <a href="#about" class="btn-secondary">
           <i class="fa-solid fa-user"></i> Profil & Compétences
         </a>
         <a href="#contact" class="btn-secondary">
-          <i class="fa-solid fa-envelope"></i> Me Contacter
+          <i class="fa-solid fa-envelope"></i> <span data-i18n="nav.cta">Me Contacter</span>
         </a>
       </div>
 
       <div class="hero-highlights-strip reveal-item">
         <div class="highlight-card">
           <span class="highlight-num gradient-text">4+</span>
-          <span class="highlight-label">Projets Data Majeurs</span>
+          <span class="highlight-label" data-i18n="hero.stat1">Projets Data Majeurs</span>
         </div>
         <div class="highlight-card">
           <span class="highlight-num" style="color: #38bdf8;">Python</span>
@@ -1473,16 +1518,16 @@
         </div>
         <div class="highlight-card">
           <span class="highlight-num" style="color: #10b981;">Rabat</span>
-          <span class="highlight-label">Maroc</span>
+          <span class="highlight-label" data-i18n="hero.stat4">Maroc</span>
         </div>
       </div>
     </div>
 
-    <a href="#about" class="scroll-indicator" aria-label="Faire défiler vers le bas">
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
       <div class="scroll-mouse">
         <div class="scroll-wheel"></div>
       </div>
-      <span>Scroll Down</span>
+      <span data-i18n="hero.scroll">Scroll Down</span>
     </a>
   </section>
 
@@ -1491,35 +1536,31 @@
       <div class="section-header reveal-item">
         <span class="section-subtitle">À Propos &bull; Profil & Expertises</span>
         <h2 class="section-title">Rigueur Analytique & Vision Stratégique</h2>
-        <p class="section-desc">
-          Une combinaison unique de compétences techniques en ingénierie des données et de compréhension métier pour concevoir des architectures de données robustes et des solutions décisionnelles percutantes.
-        </p>
+        <p class="section-desc" data-i18n="about.desc">Une combinaison unique de compétences techniques en ingénierie des données et de compréhension métier pour concevoir des architectures de données robustes et des solutions décisionnelles percutantes.</p>
       </div>
 
       <div class="about-grid">
         <div class="glass-card about-profile-card reveal-item">
-          <div class="bio-lead">
-            Étudiant en dernière année de Data Science à l'ESI, passionné par la valorisation des données et la gouvernance d'entreprise.
-          </div>
+          <div class="bio-lead" data-i18n="about.bioLead">Étudiant en dernière année de Data Science à l'ESI, passionné par la valorisation des données et la gouvernance d'entreprise.</div>
           <p class="bio-text">
-            Je combine expertise technique (Python, SQL, Talend) et vision métier pour concevoir des pipelines de données fiables. Actuellement en PFE à Attijariwafa Bank, j'analyse la performance des agences pour déterminer la rentabilité et les opportunités de fusion, en m'appuyant sur des modèles dimensionnels et des flux ETL automatisés.
+            <span data-i18n="about.bio1">Je combine expertise technique (Python, SQL, Talend) et vision métier pour concevoir des pipelines de données fiables. Actuellement en PFE à Attijariwafa Bank, j'analyse la performance des agences pour déterminer la rentabilité et les opportunités de fusion, en m'appuyant sur des modèles dimensionnels et des flux ETL automatisés.</span>
           </p>
           <p class="bio-text">
-            Motivé par les défis du secteur bancaire et des entreprises marocaines, je souhaite apporter des solutions concrètes pour garantir la qualité des données, automatiser les rapports et fournir des tableaux de bord clairs pour piloter la performance.
+            <span data-i18n="about.bio2">Motivé par les défis du secteur bancaire et des entreprises marocaines, je souhaite apporter des solutions concrètes pour garantir la qualité des données, automatiser les rapports et fournir des tableaux de bord clairs pour piloter la performance.</span>
           </p>
 
           <div class="about-features-list">
             <div class="about-feat-item">
               <i class="fa-solid fa-server about-feat-icon"></i>
               <div>
-                <span class="about-feat-title">Master Data Management</span>
+                <span class="about-feat-title" data-i18n="about.feat1Title">Master Data Management</span>
                 <span class="about-feat-desc">Gouvernance, qualité (~80% clean) & OpenMetadata</span>
               </div>
             </div>
             <div class="about-feat-item">
               <i class="fa-solid fa-diagram-project about-feat-icon"></i>
               <div>
-                <span class="about-feat-title">Modélisation de Données</span>
+                <span class="about-feat-title" data-i18n="about.feat2Title">Modélisation de Données</span>
                 <span class="about-feat-desc">Modèles dimensionnels, tables de faits & Data Warehousing</span>
               </div>
             </div>
@@ -1624,16 +1665,14 @@
       <div id="vision" class="vision-banner reveal-item">
         <div class="vision-content">
           <div class="vision-badge">
-            <i class="fa-solid fa-bullseye"></i> Vision Professionnelle
+            <i class="fa-solid fa-bullseye"></i> <span data-i18n="vision.badge">Vision Professionnelle</span>
           </div>
-          <h3 class="vision-title">Ce que j'apporte à vos projets Data</h3>
-          <p class="vision-text">
-            Dans un contexte où la donnée est le nouvel actif stratégique, mon expertise en MDM et en modélisation permet de garantir la fiabilité des informations, d'automatiser les flux ETL et de fournir des tableaux de bord clairs pour piloter la performance, que ce soit dans le secteur bancaire, l'optimisation des processus d'entreprise ou le développement d'outils backend sur mesure.
-          </p>
+          <h3 class="vision-title" data-i18n="vision.title">Ce que j'apporte à vos projets Data</h3>
+          <p class="vision-text" data-i18n="vision.text">Dans un contexte où la donnée est le nouvel actif stratégique, mon expertise en MDM et en modélisation permet de garantir la fiabilité des informations, d'automatiser les flux ETL et de fournir des tableaux de bord clairs pour piloter la performance, que ce soit dans le secteur bancaire, l'optimisation des processus d'entreprise ou le développement d'outils backend sur mesure.</p>
         </div>
         <div>
           <a href="#contact" class="btn-primary">
-            <i class="fa-solid fa-handshake"></i> Collaborer ensemble
+            <i class="fa-solid fa-handshake"></i> <span data-i18n="vision.cta">Collaborer ensemble</span>
           </a>
         </div>
       </div>
@@ -1643,8 +1682,8 @@
   <section id="projects" class="projects-section">
     <div class="container">
       <div class="section-header reveal-item">
-        <span class="section-subtitle">Showcase &bull; Portfolio de Réalisations</span>
-        <h2 class="section-title">Quatre Projets Data Clés</h2>
+        <span class="section-subtitle" data-i18n="projects.subtitle">Showcase &bull; Portfolio de Réalisations</span>
+        <h2 class="section-title" data-i18n="projects.title">Quatre Projets Data Clés</h2>
         <p class="section-desc">
           Démonstrations concrètes de mes compétences en ingénierie des données, modélisation décisionnelle, automatisation backend et développement de plateformes interactives.
         </p>
@@ -1663,26 +1702,24 @@
 
           <h3 class="project-title">Pipeline MDM & Gouvernance des Données</h3>
 
-          <p class="project-desc">
-            Mise en place d'une architecture complète de Master Data Management, incluant l'ingestion, le nettoyage (cible 80% de données fiables) et la documentation des métadonnées pour un jeu de données synthétique réaliste.
-          </p>
+          <p class="project-desc" data-i18n="p1.desc">Mise en place d'une architecture complète de Master Data Management, incluant l'ingestion, le nettoyage (cible 80% de données fiables) et la documentation des métadonnées pour un jeu de données synthétique réaliste.</p>
 
           <ul class="project-features-list">
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Intégration et transformation ETL avec Talend</span>
+              <span data-i18n="p1.f1">Intégration et transformation ETL avec Talend</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Catalogage et gouvernance via OpenMetadata</span>
+              <span data-i18n="p1.f2">Catalogage et gouvernance via OpenMetadata</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Génération de jeux de données synthétiques réalistes</span>
+              <span data-i18n="p1.f3">Génération de jeux de données synthétiques réalistes</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Contrôle de qualité et détection d'anomalies automatisé</span>
+              <span data-i18n="p1.f4">Contrôle de qualité et détection d'anomalies automatisé</span>
             </li>
           </ul>
 
@@ -1709,28 +1746,26 @@
             <span class="project-number">02 / PROJET</span>
           </div>
 
-          <h3 class="project-title">Dashboard de Performance Bancaire (PFE)</h3>
+          <h3 class="project-title" data-i18n="p2.title">Dashboard de Performance Bancaire (PFE)</h3>
 
-          <p class="project-desc">
-            Application décisionnelle interactive développée pour analyser la rentabilité des agences bancaires et évaluer les scénarios de fusion, basée sur des modèles dimensionnels robustes.
-          </p>
+          <p class="project-desc" data-i18n="p2.desc">Application décisionnelle interactive développée pour analyser la rentabilité des agences bancaires et évaluer les scénarios de fusion, basée sur des modèles dimensionnels robustes.</p>
 
           <ul class="project-features-list">
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Modélisation en étoile (tables de faits et dimensions)</span>
+              <span data-i18n="p2.f1">Modélisation en étoile (tables de faits et dimensions)</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Connexion et requêtage optimisé sous MySQL</span>
+              <span data-i18n="p2.f2">Connexion et requêtage optimisé sous MySQL</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Visualisation dynamique des KPIs de rentabilité</span>
+              <span data-i18n="p2.f3">Visualisation dynamique des KPIs de rentabilité</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Export de rapports professionnels via LaTeX (Beamer)</span>
+              <span data-i18n="p2.f4">Export de rapports professionnels via LaTeX (Beamer)</span>
             </li>
           </ul>
 
@@ -1757,28 +1792,26 @@
             <span class="project-number">03 / PROJET</span>
           </div>
 
-          <h3 class="project-title">Plateforme d'Analyse Géospatiale</h3>
+          <h3 class="project-title" data-i18n="p3.title">Plateforme d'Analyse Géospatiale</h3>
 
-          <p class="project-desc">
-            Plateforme interactive de collecte, de structuration et d'analyse de données géospatiales pour évaluer l'implantation territoriale et l'environnement concurrentiel des agences à travers le Maroc.
-          </p>
+          <p class="project-desc" data-i18n="p3.desc">Plateforme interactive de collecte, de structuration et d'analyse de données géospatiales pour évaluer l'implantation territoriale et l'environnement concurrentiel des agences à travers le Maroc.</p>
 
           <ul class="project-features-list">
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Collecte et enrichissement de données géolocalisées</span>
+              <span data-i18n="p3.f1">Collecte et enrichissement de données géolocalisées</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Analyse de densité, de proximité et de couverture</span>
+              <span data-i18n="p3.f2">Analyse de densité, de proximité et de couverture</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Nettoyage et standardisation des adresses à grande échelle</span>
+              <span data-i18n="p3.f3">Nettoyage et standardisation des adresses à grande échelle</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Visualisation cartographique interactive et dynamique</span>
+              <span data-i18n="p3.f4">Visualisation cartographique interactive et dynamique</span>
             </li>
           </ul>
 
@@ -1807,26 +1840,24 @@
 
           <h3 class="project-title">ML Studio Pro</h3>
 
-          <p class="project-desc">
-            Plateforme web interactive permettant d'entraîner, d'évaluer et de déployer des modèles de Machine Learning sans écrire de code, directement depuis le navigateur.
-          </p>
+          <p class="project-desc" data-i18n="p4.desc">Plateforme web interactive permettant d'entraîner, d'évaluer et de déployer des modèles de Machine Learning sans écrire de code, directement depuis le navigateur.</p>
 
           <ul class="project-features-list">
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Upload de données (CSV/Excel) et prétraitement automatisé</span>
+              <span data-i18n="p4.f1">Upload de données (CSV/Excel) et prétraitement automatisé</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Configuration dynamique des hyperparamètres (RF, SVM, K-Means)</span>
+              <span data-i18n="p4.f2">Configuration dynamique des hyperparamètres (RF, SVM, K-Means)</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Visualisation interactive des résultats (Plotly, PCA, Matrices)</span>
+              <span data-i18n="p4.f3">Visualisation interactive des résultats (Plotly, PCA, Matrices)</span>
             </li>
             <li class="project-feature-item">
               <i class="fa-solid fa-circle-check feature-check"></i>
-              <span>Déploiement continu et gratuit via Streamlit Community Cloud</span>
+              <span data-i18n="p4.f4">Déploiement continu et gratuit via Streamlit Community Cloud</span>
             </li>
           </ul>
 
@@ -1840,7 +1871,7 @@
 
           <a href="https://ml-studio-platform.streamlit.app/" target="_blank" class="project-btn">
             <i class="fa-solid fa-external-link-alt"></i>
-            <span>Voir la Démo Live</span>
+            <span data-i18n="p4.btn">Voir la Démo Live</span>
           </a>
         </div>
 
@@ -1853,9 +1884,7 @@
       <div class="section-header reveal-item">
         <span class="section-subtitle">Stack Technique &bull; Outils & Bibliothèques</span>
         <h2 class="section-title">Compétences & Technologies</h2>
-        <p class="section-desc">
-          Une maîtrise transversale des briques technologiques de la donnée, de l'ingénierie des pipelines à la visualisation décisionnelle et l'automatisation.
-        </p>
+        <p class="section-desc" data-i18n="skills.desc">Une maîtrise transversale des briques technologiques de la donnée, de l'ingénierie des pipelines à la visualisation décisionnelle et l'automatisation.</p>
       </div>
 
       <div class="skills-category-grid">
@@ -1873,28 +1902,28 @@
                 <i class="fa-brands fa-python"></i>
                 <span class="tool-name">Python (Pandas, NumPy)</span>
               </div>
-              <span class="tool-level">Expert</span>
+              <span class="tool-level" data-i18n="level.expert">Expert</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <span class="tool-name">Génération Données Synthétiques</span>
+                <span class="tool-name" data-i18n="tool.synthetic">Génération Données Synthétiques</span>
               </div>
-              <span class="tool-level">Avancé</span>
+              <span class="tool-level" data-i18n="level.advanced">Avancé</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-chart-scatter"></i>
                 <span class="tool-name">Scikit-learn & Analyse Prédictive</span>
               </div>
-              <span class="tool-level">Solide</span>
+              <span class="tool-level" data-i18n="level.solid">Solide</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-flask"></i>
                 <span class="tool-name">Jupyter & Prototypage</span>
               </div>
-              <span class="tool-level">Expert</span>
+              <span class="tool-level" data-i18n="level.expert">Expert</span>
             </div>
           </div>
         </div>
@@ -1912,28 +1941,28 @@
                 <i class="fa-solid fa-gears"></i>
                 <span class="tool-name">Talend Open Studio (ETL)</span>
               </div>
-              <span class="tool-level">Avancé</span>
+              <span class="tool-level" data-i18n="level.advanced">Avancé</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-book-open"></i>
                 <span class="tool-name">OpenMetadata</span>
               </div>
-              <span class="tool-level">Avancé</span>
+              <span class="tool-level" data-i18n="level.advanced">Avancé</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-filter"></i>
                 <span class="tool-name">Data Quality & Profiling</span>
               </div>
-              <span class="tool-level">Expert</span>
+              <span class="tool-level" data-i18n="level.expert">Expert</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-brands fa-git-alt"></i>
                 <span class="tool-name">Git & GitHub CI/CD</span>
               </div>
-              <span class="tool-level">Solide</span>
+              <span class="tool-level" data-i18n="level.solid">Solide</span>
             </div>
           </div>
         </div>
@@ -1951,28 +1980,28 @@
                 <i class="fa-solid fa-table"></i>
                 <span class="tool-name">MySQL / PostgreSQL</span>
               </div>
-              <span class="tool-level">Expert</span>
+              <span class="tool-level" data-i18n="level.expert">Expert</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-diagram-project"></i>
-                <span class="tool-name">Modélisation Dimensionnelle</span>
+                <span class="tool-name" data-i18n="tool.dimModel">Modélisation Dimensionnelle</span>
               </div>
-              <span class="tool-level">Expert</span>
+              <span class="tool-level" data-i18n="level.expert">Expert</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-warehouse"></i>
                 <span class="tool-name">Data Warehousing</span>
               </div>
-              <span class="tool-level">Avancé</span>
+              <span class="tool-level" data-i18n="level.advanced">Avancé</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-code"></i>
                 <span class="tool-name">SQL Avancé & Optimisation</span>
               </div>
-              <span class="tool-level">Expert</span>
+              <span class="tool-level" data-i18n="level.expert">Expert</span>
             </div>
           </div>
         </div>
@@ -1990,28 +2019,28 @@
                 <i class="fa-solid fa-display"></i>
                 <span class="tool-name">Streamlit</span>
               </div>
-              <span class="tool-level">Expert</span>
+              <span class="tool-level" data-i18n="level.expert">Expert</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-bolt"></i>
                 <span class="tool-name">Flask & API REST</span>
               </div>
-              <span class="tool-level">Avancé</span>
+              <span class="tool-level" data-i18n="level.advanced">Avancé</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-brands fa-telegram"></i>
                 <span class="tool-name">Telegram Bot API</span>
               </div>
-              <span class="tool-level">Avancé</span>
+              <span class="tool-level" data-i18n="level.advanced">Avancé</span>
             </div>
             <div class="tool-badge">
               <div class="tool-info">
                 <i class="fa-solid fa-file-pdf"></i>
                 <span class="tool-name">LaTeX (Beamer)</span>
               </div>
-              <span class="tool-level">Avancé</span>
+              <span class="tool-level" data-i18n="level.advanced">Avancé</span>
             </div>
           </div>
         </div>
@@ -2024,19 +2053,15 @@
     <div class="container">
       <div class="section-header reveal-item">
         <span class="section-subtitle">Me Contacter &bull; Échange & Opportunités</span>
-        <h2 class="section-title">Parlons de vos défis Data</h2>
-        <p class="section-desc">
-          Disponible pour des opportunités de Data Scientist / Data Analyst. Prêt à rejoindre une équipe data ambitieuse et à concevoir des solutions sur mesure pour vos besoins métier.
-        </p>
+        <h2 class="section-title" data-i18n="contact.title">Parlons de vos défis Data</h2>
+        <p class="section-desc" data-i18n="contact.desc">Disponible pour des opportunités de Data Scientist / Data Analyst. Prêt à rejoindre une équipe data ambitieuse et à concevoir des solutions sur mesure pour vos besoins métier.</p>
       </div>
 
       <div class="contact-grid">
         <div class="contact-info-card reveal-item">
           <div class="contact-info-top">
-            <h3>Contacté moi</h3>
-            <p>
-              Je serais ravi d'échanger sur les opportunités au sein de votre équipe Data, de présenter en direct mes plateformes ou de concevoir un premier prototype d'analyse pour vos besoins.
-            </p>
+            <h3 data-i18n="contact.card.title">Contacté moi</h3>
+            <p data-i18n="contact.card.desc">Je serais ravi d'échanger sur les opportunités au sein de votre équipe Data, de présenter en direct mes plateformes ou de concevoir un premier prototype d'analyse pour vos besoins.</p>
 
             <div class="contact-details-list">
               <a href="mailto:salahahadaf20@gmail.com" class="contact-item">
@@ -2044,7 +2069,7 @@
                   <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div>
-                  <span class="contact-item-label">Adresse Email</span>
+                  <span class="contact-item-label" data-i18n="contact.email">Adresse Email</span>
                   <span class="contact-item-val">salahahadaf20@gmail.com</span>
                 </div>
               </a>
@@ -2053,7 +2078,7 @@
                   <i class="fa-solid fa-phone"></i>
                 </div>
                 <div>
-                  <span class="contact-item-label">Telephone</span>
+                  <span class="contact-item-label" data-i18n="contact.phone">Téléphone</span>
                   <span class="contact-item-val">+212696758044</span>
                 </div>
               </div>
@@ -2063,7 +2088,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div>
-                  <span class="contact-item-label">Localisation</span>
+                  <span class="contact-item-label" data-i18n="contact.location">Localisation</span>
                   <span class="contact-item-val">Rabat, Maroc</span>
                 </div>
               </div>
@@ -2073,7 +2098,7 @@
                   <i class="fa-solid fa-briefcase"></i>
                 </div>
                 <div>
-                  <span class="contact-item-label">Objectif</span>
+                  <span class="contact-item-label" data-i18n="contact.goal">Objectif</span>
                   <span class="contact-item-val">Data Scientist / Data Analyst</span>
                 </div>
               </div>
@@ -2082,7 +2107,7 @@
 
           <div>
             <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
-              Réseaux Professionnels
+              <span data-i18n="contact.social">Réseaux Professionnels</span>
             </div>
             <div class="social-links">
               <a href="https://github.com/Aiden-Domochevski" target="_blank" rel="noopener noreferrer" class="social-btn" title="Profil GitHub">
@@ -2114,11 +2139,11 @@
       </div>
 
       <div class="footer-text">
-        &copy; 2026 Salah Eddine Ahadaf. Tous droits réservés.
+        <span data-i18n="footer.copy">&copy; 2026 Salah Eddine Ahadaf. Tous droits réservés.</span>
       </div>
 
       <div class="footer-passion">
-        <span>Conçu avec passion</span>
+        <span data-i18n="footer.passion">Conçu avec passion</span>
         <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
       </div>
     </div>
@@ -2433,42 +2458,6 @@ def analyse_geospatiale(agences, commerces):
       animate();
     })();
 
-    (function initTyping() {
-      const phrases = [
-        "Expert en Master Data Management (MDM)",
-        "Création de Dashboards Interactifs avec Streamlit",
-        "Modélisation Dimensionnelle & Pipelines ETL",
-        "Développement de Plateformes ML & Automatisation"
-      ];
-      const target = document.getElementById("typed-text");
-      if (!target) return;
-
-      let phraseIdx = 0, charIdx = 0, isDeleting = false;
-      const typeSpeed = 50, deleteSpeed = 25, delayBetweenPhrases = 2200;
-
-      function typeLoop() {
-        const currentPhrase = phrases[phraseIdx];
-        if (isDeleting) {
-          target.textContent = currentPhrase.substring(0, charIdx - 1);
-          charIdx--;
-        } else {
-          target.textContent = currentPhrase.substring(0, charIdx + 1);
-          charIdx++;
-        }
-
-        let speed = isDeleting ? deleteSpeed : typeSpeed;
-        if (!isDeleting && charIdx === currentPhrase.length) {
-          speed = delayBetweenPhrases;
-          isDeleting = true;
-        } else if (isDeleting && charIdx === 0) {
-          isDeleting = false;
-          phraseIdx = (phraseIdx + 1) % phrases.length;
-          speed = 400;
-        }
-        setTimeout(typeLoop, speed);
-      }
-      typeLoop();
-    })();
 
     document.addEventListener("DOMContentLoaded", () => {
       const reveals = document.querySelectorAll(".reveal-item");
@@ -2583,6 +2572,308 @@ def analyse_geospatiale(agences, commerces):
         });
       }
     });
+  </script>
+
+  <!-- ========== i18n ENGINE ========== -->
+  <script>
+    const TRANSLATIONS = {
+      fr: {
+        "nav.about": "À Propos",
+        "nav.projects": "Projets",
+        "nav.skills": "Compétences",
+        "nav.contact": "Contact",
+        "nav.available": "Disponible · Data Scientist",
+        "nav.cta": "Me Contacter",
+        "hero.badge": "Data Scientist passionné · Disponible au Maroc",
+        "hero.greeting": "Bonjour, je suis",
+        "hero.title": "Data Scientist &amp; Analyste de Données",
+        "hero.subtitle": "Spécialisé en Master Data Management (MDM), modélisation de données et création de plateformes décisionnelles. Je transforme des données complexes en insights stratégiques pour optimiser la performance et la prise de décision.",
+        "hero.typingPrefix": "expertise",
+        "hero.ctaProjects": "Voir mes Projets",
+        "hero.ctaAbout": "Profil &amp; Compétences",
+        "hero.stat1": "Projets Data Majeurs",
+        "hero.stat2": "&amp; SQL Avancé",
+        "hero.stat3": "&amp; OpenMetadata",
+        "hero.stat4": "Maroc",
+        "hero.scroll": "Scroll Down",
+        "about.subtitle": "À Propos &bull; Profil &amp; Expertises",
+        "about.title": "Rigueur Analytique &amp; Vision Stratégique",
+        "about.desc": "Une combinaison unique de compétences techniques en ingénierie des données et de compréhension métier pour concevoir des architectures de données robustes et des solutions décisionnelles percutantes.",
+        "about.bioLead": "Étudiant en dernière année de Data Science à l'ESI, passionné par la valorisation des données et la gouvernance d'entreprise.",
+        "about.bio1": "Je combine expertise technique (Python, SQL, Talend) et vision métier pour concevoir des pipelines de données fiables. Actuellement en PFE à Attijariwafa Bank, j'analyse la performance des agences pour déterminer la rentabilité et les opportunités de fusion, en m'appuyant sur des modèles dimensionnels et des flux ETL automatisés.",
+        "about.bio2": "Motivé par les défis du secteur bancaire et des entreprises marocaines, je souhaite apporter des solutions concrètes pour garantir la qualité des données, automatiser les rapports et fournir des tableaux de bord clairs pour piloter la performance.",
+        "about.feat1Title": "Master Data Management",
+        "about.feat1Desc": "Gouvernance, qualité (~80% clean) &amp; OpenMetadata",
+        "about.feat2Title": "Modélisation de Données",
+        "about.feat2Desc": "Modèles dimensionnels, tables de faits &amp; Data Warehousing",
+        "about.feat3Title": "Visualisation &amp; BI",
+        "about.feat3Desc": "Dashboards interactifs (Streamlit) &amp; reporting LaTeX",
+        "about.feat4Title": "Automatisation &amp; Backend",
+        "about.feat4Desc": "Flask, API, PythonAnywhere &amp; Bots Telegram",
+        "skill.sql": "SQL &amp; Modélisation Dimensionnelle",
+        "skill.etl": "ETL (Talend) &amp; Gouvernance (OpenMetadata)",
+        "skill.streamlit": "Streamlit &amp; Visualisation de Données",
+        "skill.latex": "LaTeX (Beamer) &amp; Documentation Technique",
+        "skill.flask": "Flask, API &amp; Automatisation",
+        "vision.badge": "Vision Professionnelle",
+        "vision.title": "Ce que j'apporte à vos projets Data",
+        "vision.text": "Dans un contexte où la donnée est le nouvel actif stratégique, mon expertise en MDM et en modélisation permet de garantir la fiabilité des informations, d'automatiser les flux ETL et de fournir des tableaux de bord clairs pour piloter la performance, que ce soit dans le secteur bancaire, l'optimisation des processus d'entreprise ou le développement d'outils backend sur mesure.",
+        "vision.cta": "Collaborer ensemble",
+        "projects.subtitle": "Showcase &bull; Portfolio de Réalisations",
+        "projects.title": "Quatre Projets Data Clés",
+        "projects.desc": "Démonstrations concrètes de mes compétences en ingénierie des données, modélisation décisionnelle, automatisation backend et développement de plateformes interactives.",
+        "p1.title": "Pipeline MDM &amp; Gouvernance des Données",
+        "p1.desc": "Mise en place d'une architecture complète de Master Data Management, incluant l'ingestion, le nettoyage (cible 80% de données fiables) et la documentation des métadonnées pour un jeu de données synthétique réaliste.",
+        "p1.f1": "Intégration et transformation ETL avec Talend",
+        "p1.f2": "Catalogage et gouvernance via OpenMetadata",
+        "p1.f3": "Génération de jeux de données synthétiques réalistes",
+        "p1.f4": "Contrôle de qualité et détection d'anomalies automatisé",
+        "proj.details": "Détails &amp; Architecture",
+        "p2.title": "Dashboard de Performance Bancaire (PFE)",
+        "p2.desc": "Application décisionnelle interactive développée pour analyser la rentabilité des agences bancaires et évaluer les scénarios de fusion, basée sur des modèles dimensionnels robustes.",
+        "p2.f1": "Modélisation en étoile (tables de faits et dimensions)",
+        "p2.f2": "Connexion et requêtage optimisé sous MySQL",
+        "p2.f3": "Visualisation dynamique des KPIs de rentabilité",
+        "p2.f4": "Export de rapports professionnels via LaTeX (Beamer)",
+        "p2.btn": "Détails &amp; Démo Visuelle",
+        "p3.title": "Plateforme d'Analyse Géospatiale",
+        "p3.desc": "Plateforme interactive de collecte, de structuration et d'analyse de données géospatiales pour évaluer l'implantation territoriale et l'environnement concurrentiel des agences à travers le Maroc.",
+        "p3.f1": "Collecte et enrichissement de données géolocalisées",
+        "p3.f2": "Analyse de densité, de proximité et de couverture",
+        "p3.f3": "Nettoyage et standardisation des adresses à grande échelle",
+        "p3.f4": "Visualisation cartographique interactive et dynamique",
+        "p3.btn": "Détails &amp; Méthodologie",
+        "p4.desc": "Plateforme web interactive permettant d'entraîner, d'évaluer et de déployer des modèles de Machine Learning sans écrire de code, directement depuis le navigateur.",
+        "p4.f1": "Upload de données (CSV/Excel) et prétraitement automatisé",
+        "p4.f2": "Configuration dynamique des hyperparamètres (RF, SVM, K-Means)",
+        "p4.f3": "Visualisation interactive des résultats (Plotly, PCA, Matrices)",
+        "p4.f4": "Déploiement continu et gratuit via Streamlit Community Cloud",
+        "p4.btn": "Voir la Démo Live",
+        "skills.subtitle": "Stack Technique &bull; Outils &amp; Bibliothèques",
+        "skills.title": "Compétences &amp; Technologies",
+        "skills.desc": "Une maîtrise transversale des briques technologiques de la donnée, de l'ingénierie des pipelines à la visualisation décisionnelle et l'automatisation.",
+        "skills.cat1": "Data Science &amp; ML",
+        "skills.cat2": "Data Engineering &amp; MDM",
+        "skills.cat3": "Bases de Données &amp; Modélisation",
+        "skills.cat4": "Visualisation &amp; Automatisation",
+        "level.expert": "Expert",
+        "level.advanced": "Avancé",
+        "level.solid": "Solide",
+        "tool.synthetic": "Génération Données Synthétiques",
+        "tool.dimModel": "Modélisation Dimensionnelle",
+        "contact.subtitle": "Me Contacter &bull; Échange &amp; Opportunités",
+        "contact.title": "Parlons de vos défis Data",
+        "contact.desc": "Disponible pour des opportunités de Data Scientist / Data Analyst. Prêt à rejoindre une équipe data ambitieuse et à concevoir des solutions sur mesure pour vos besoins métier.",
+        "contact.card.title": "Contactez moi",
+        "contact.card.desc": "Je serais ravi d'échanger sur les opportunités au sein de votre équipe Data, de présenter en direct mes plateformes ou de concevoir un premier prototype d'analyse pour vos besoins.",
+        "contact.email": "Adresse Email",
+        "contact.phone": "Téléphone",
+        "contact.location": "Localisation",
+        "contact.goal": "Objectif",
+        "contact.social": "Réseaux Professionnels",
+        "footer.copy": "&copy; 2026 Salah Eddine Ahadaf. Tous droits réservés.",
+        "footer.passion": "Conçu avec passion",
+      },
+      en: {
+        "nav.about": "About",
+        "nav.projects": "Projects",
+        "nav.skills": "Skills",
+        "nav.contact": "Contact",
+        "nav.available": "Available · Data Scientist",
+        "nav.cta": "Contact Me",
+        "hero.badge": "Passionate Data Scientist · Available in Morocco",
+        "hero.greeting": "Hello, I'm",
+        "hero.title": "Data Scientist &amp; Data Analyst",
+        "hero.subtitle": "Specialized in Master Data Management (MDM), data modeling and decision-making platform development. I transform complex data into strategic insights to optimize performance and decision-making.",
+        "hero.typingPrefix": "expertise",
+        "hero.ctaProjects": "View my Projects",
+        "hero.ctaAbout": "Profile &amp; Skills",
+        "hero.stat1": "Major Data Projects",
+        "hero.stat2": "&amp; Advanced SQL",
+        "hero.stat3": "&amp; OpenMetadata",
+        "hero.stat4": "Morocco",
+        "hero.scroll": "Scroll Down",
+        "about.subtitle": "About &bull; Profile &amp; Expertise",
+        "about.title": "Analytical Rigor &amp; Strategic Vision",
+        "about.desc": "A unique combination of technical skills in data engineering and business understanding to design robust data architectures and impactful decision-support solutions.",
+        "about.bioLead": "Final-year Data Science student at ESI, passionate about data valorization and enterprise governance.",
+        "about.bio1": "I combine technical expertise (Python, SQL, Talend) and business vision to design reliable data pipelines. Currently completing my thesis at Attijariwafa Bank, I analyze branch performance to determine profitability and merger opportunities, leveraging dimensional models and automated ETL flows.",
+        "about.bio2": "Motivated by the challenges of the banking sector and Moroccan enterprises, I aim to provide concrete solutions to ensure data quality, automate reports, and deliver clear dashboards to drive performance.",
+        "about.feat1Title": "Master Data Management",
+        "about.feat1Desc": "Governance, quality (~80% clean) &amp; OpenMetadata",
+        "about.feat2Title": "Data Modeling",
+        "about.feat2Desc": "Dimensional models, fact tables &amp; Data Warehousing",
+        "about.feat3Title": "Visualization &amp; BI",
+        "about.feat3Desc": "Interactive dashboards (Streamlit) &amp; LaTeX reporting",
+        "about.feat4Title": "Automation &amp; Backend",
+        "about.feat4Desc": "Flask, API, PythonAnywhere &amp; Telegram Bots",
+        "skill.sql": "SQL &amp; Dimensional Modeling",
+        "skill.etl": "ETL (Talend) &amp; Governance (OpenMetadata)",
+        "skill.streamlit": "Streamlit &amp; Data Visualization",
+        "skill.latex": "LaTeX (Beamer) &amp; Technical Documentation",
+        "skill.flask": "Flask, API &amp; Automation",
+        "vision.badge": "Professional Vision",
+        "vision.title": "What I bring to your Data projects",
+        "vision.text": "In a context where data is the new strategic asset, my expertise in MDM and modeling enables reliable information, automated ETL flows and clear dashboards to drive performance — whether in banking, enterprise process optimization or custom backend tool development.",
+        "vision.cta": "Let's Collaborate",
+        "projects.subtitle": "Showcase &bull; Project Portfolio",
+        "projects.title": "Four Key Data Projects",
+        "projects.desc": "Concrete demonstrations of my skills in data engineering, dimensional modeling, backend automation and interactive platform development.",
+        "p1.title": "MDM Pipeline &amp; Data Governance",
+        "p1.desc": "Implementation of a complete Master Data Management architecture, including ingestion, cleansing (targeting 80% reliable data) and metadata documentation for a realistic synthetic dataset.",
+        "p1.f1": "ETL integration and transformation with Talend",
+        "p1.f2": "Cataloging and governance via OpenMetadata",
+        "p1.f3": "Generation of realistic synthetic datasets",
+        "p1.f4": "Automated quality control and anomaly detection",
+        "proj.details": "Details &amp; Architecture",
+        "p2.title": "Banking Performance Dashboard (Thesis)",
+        "p2.desc": "Interactive decision-support application developed to analyze the profitability of bank branches and evaluate merger scenarios, based on robust dimensional models.",
+        "p2.f1": "Star schema modeling (fact and dimension tables)",
+        "p2.f2": "Optimized connection and querying under MySQL",
+        "p2.f3": "Dynamic visualization of profitability KPIs",
+        "p2.f4": "Export of professional reports via LaTeX (Beamer)",
+        "p2.btn": "Details &amp; Visual Demo",
+        "p3.title": "Geospatial Analysis Platform",
+        "p3.desc": "Interactive platform for collecting, structuring and analyzing geospatial data to evaluate territorial positioning and the competitive environment of branches across Morocco.",
+        "p3.f1": "Collection and enrichment of geolocated data",
+        "p3.f2": "Density, proximity and coverage analysis",
+        "p3.f3": "Large-scale address cleansing and standardization",
+        "p3.f4": "Interactive and dynamic cartographic visualization",
+        "p3.btn": "Details &amp; Methodology",
+        "p4.desc": "Interactive web platform to train, evaluate and deploy Machine Learning models without writing code, directly from the browser.",
+        "p4.f1": "Data upload (CSV/Excel) and automated preprocessing",
+        "p4.f2": "Dynamic hyperparameter configuration (RF, SVM, K-Means)",
+        "p4.f3": "Interactive results visualization (Plotly, PCA, Matrices)",
+        "p4.f4": "Continuous free deployment via Streamlit Community Cloud",
+        "p4.btn": "View Live Demo",
+        "skills.subtitle": "Tech Stack &bull; Tools &amp; Libraries",
+        "skills.title": "Skills &amp; Technologies",
+        "skills.desc": "Broad mastery of data technology building blocks, from pipeline engineering to decision-support visualization and automation.",
+        "skills.cat1": "Data Science &amp; ML",
+        "skills.cat2": "Data Engineering &amp; MDM",
+        "skills.cat3": "Databases &amp; Modeling",
+        "skills.cat4": "Visualization &amp; Automation",
+        "level.expert": "Expert",
+        "level.advanced": "Advanced",
+        "level.solid": "Solid",
+        "tool.synthetic": "Synthetic Data Generation",
+        "tool.dimModel": "Dimensional Modeling",
+        "contact.subtitle": "Contact Me &bull; Exchange &amp; Opportunities",
+        "contact.title": "Let's talk about your Data challenges",
+        "contact.desc": "Available for Data Scientist / Data Analyst opportunities. Ready to join an ambitious data team and design tailored solutions for your business needs.",
+        "contact.card.title": "Get in touch",
+        "contact.card.desc": "I'd be happy to discuss opportunities within your Data team, present my platforms live, or design an initial analysis prototype for your needs.",
+        "contact.email": "Email Address",
+        "contact.phone": "Phone",
+        "contact.location": "Location",
+        "contact.goal": "Goal",
+        "contact.social": "Professional Networks",
+        "footer.copy": "&copy; 2026 Salah Eddine Ahadaf. All rights reserved.",
+        "footer.passion": "Built with passion",
+      }
+    };
+
+    const TYPING_PHRASES = {
+      fr: [
+        "Expert en Master Data Management (MDM)",
+        "Création de Dashboards Interactifs avec Streamlit",
+        "Modélisation Dimensionnelle & Pipelines ETL",
+        "Développement de Plateformes ML & Automatisation"
+      ],
+      en: [
+        "Master Data Management (MDM) Expert",
+        "Building Interactive Dashboards with Streamlit",
+        "Dimensional Modeling & ETL Pipelines",
+        "ML Platform Development & Automation"
+      ]
+    };
+
+    let currentLang = localStorage.getItem('portfolioLang') || 'fr';
+
+    function applyTranslations(lang) {
+      const t = TRANSLATIONS[lang];
+      if (!t) return;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          el.innerHTML = t[key];
+        }
+      });
+      // Update html lang
+      document.getElementById('html-root').lang = lang;
+      // Update button states
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').setAttribute('aria-pressed', lang === 'fr');
+      document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en');
+    }
+
+    function setLang(lang) {
+      if (lang === currentLang) return;
+      currentLang = lang;
+      localStorage.setItem('portfolioLang', lang);
+      applyTranslations(lang);
+      // Reset typing phrases for new language
+      window._typingPhrases = TYPING_PHRASES[lang];
+      window._typingReset && window._typingReset();
+    }
+
+    // Apply on load
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTranslations(currentLang);
+      // Update button initial state
+      document.getElementById('btn-fr').classList.toggle('active', currentLang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+    });
+  </script>
+
+  <!-- Patch typing to support i18n -->
+  <script>
+    // Override typing phrases with lang-aware ones
+    window._typingPhrases = TYPING_PHRASES[currentLang];
+
+    (function initTypingI18n() {
+      const target = document.getElementById("typed-text");
+      if (!target) return;
+
+      let phraseIdx = 0, charIdx = 0, isDeleting = false;
+      const typeSpeed = 50, deleteSpeed = 25, delayBetweenPhrases = 2200;
+      let timeoutId = null;
+
+      function typeLoop() {
+        const phrases = window._typingPhrases;
+        if (phraseIdx >= phrases.length) phraseIdx = 0;
+        const currentPhrase = phrases[phraseIdx];
+        if (isDeleting) {
+          target.textContent = currentPhrase.substring(0, charIdx - 1);
+          charIdx--;
+        } else {
+          target.textContent = currentPhrase.substring(0, charIdx + 1);
+          charIdx++;
+        }
+        let speed = isDeleting ? deleteSpeed : typeSpeed;
+        if (!isDeleting && charIdx === currentPhrase.length) {
+          speed = delayBetweenPhrases;
+          isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+          isDeleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          speed = 400;
+        }
+        timeoutId = setTimeout(typeLoop, speed);
+      }
+
+      window._typingReset = function() {
+        clearTimeout(timeoutId);
+        phraseIdx = 0;
+        charIdx = 0;
+        isDeleting = false;
+        target.textContent = '';
+        timeoutId = setTimeout(typeLoop, 400);
+      };
+
+      typeLoop();
+    })();
   </script>
 </body>
 </html>
